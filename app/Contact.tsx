@@ -1,11 +1,12 @@
 
+
 import { View, Text, StyleSheet } from 'react-native';
 
-export default function HtmlPage() {
+export default function ContactPage() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>HTML Screen</Text>
-      <Text>This is the Html page.</Text>
+      <Text style={styles.title}>Contact Form</Text>
+      <Text>This is the Model page.</Text>
     </View>
   );
 }
