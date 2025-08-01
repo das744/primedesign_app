@@ -1,29 +1,45 @@
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-export default function PrimaryButton({ title, onPress }: { title: string; onPress?: () => void }) {
+import React from 'react';
+import { TouchableOpacity, Text, StyleSheet, GestureResponderEvent } from 'react-native';
+
+type Props = {
+  title: string;
+  onPress: (event: GestureResponderEvent) => void;
+  disabled?: boolean;
+};
+
+export default function PrimaryButton({ title, onPress, disabled }: Props) {
   return (
-    <TouchableOpacity style={styles.button} onPress={onPress}>
-      <Text style={styles.buttonText}>{title}</Text>
+    <TouchableOpacity
+      onPress={onPress}
+      disabled={disabled}
+      style={[styles.button, disabled && styles.disabled]}
+    >
+      <Text style={styles.text}>{title}</Text>
     </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
   button: {
-    backgroundColor: '#3498db',
-    paddingHorizontal: 20,
+    backgroundColor: '#682A9B',
     paddingVertical: 12,
-    borderRadius: 10,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 3,
+    paddingHorizontal: 24,
+    borderRadius: 8,
+    alignItems: 'center',
+    marginTop: 16,
+    shadowColor: '#682A9B',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.50,
+    shadowRadius: 6,
+    elevation: 2,
   },
-  buttonText: {
-    color: '#fff',
-    fontWeight: '600',
+  disabled: {
+    backgroundColor: '#A0A0A0',
+  },
+  text: {
+    color: 'white',
     fontSize: 16,
-    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });

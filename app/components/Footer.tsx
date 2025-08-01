@@ -1,3 +1,5 @@
+
+
 import { View, Text, StyleSheet } from 'react-native';
 
 export default function Footer() {
@@ -10,14 +12,12 @@ export default function Footer() {
 
 const styles = StyleSheet.create({
   container: {
-    minHeight: 120,
-    backgroundColor: '#95a5a6',
-    justifyContent: 'center',
-    alignItems: 'center',
     padding: 20,
+    alignItems: 'center',
+    backgroundColor: '#f1f1f1',
   },
   text: {
-    color: '#222',
-    fontWeight: '500',
+    color: '#555',
+    fontSize: 14,
   },
 });

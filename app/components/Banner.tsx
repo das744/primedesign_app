@@ -1,45 +1,36 @@
-import { View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 
-export default function Banner() {
+import { View, Text, Image, StyleSheet } from 'react-native';
+import bannerImg from '@/assets/img4.webp';
+import PrimaryButton from './PrimaryButton';
+import TextStyle from './TextStyle';
+
+export default function Banner({ onGetStartedPress }: { onGetStartedPress: () => void }) {
   return (
-    <View style={styles.banner}>
-      <Image
-        source={{ uri: 'https://via.placeholder.com/800x400' }}
-        style={styles.image}
-        resizeMode="cover"
-      />
-      <Text style={styles.title}>Welcome to PrimeDesign</Text>
-      <Text style={styles.text}>
-        We build beautiful and functional digital experiences for businesses.
+    <View style={styles.container}>
+      <Image source={bannerImg} style={styles.image} />
+      <Text style={TextStyle.title}>Welcome to PrimeDesign</Text>
+      <Text style={TextStyle.body}>
+       At PrimeDesign, we offer a full suite of digital services tailored to your business needs. From modern web development to custom mobile apps, we create solutions that are fast, scalable, and beautifully designed.
+       </Text>
+        <Text style={TextStyle.body}>
+
+Whether you're launching a startup, refreshing your brand, or building a new product, our team is here to bring your vision to life with creative precision and technical excellence.
       </Text>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Get Started</Text>
-      </TouchableOpacity>
+      <PrimaryButton title="Get Started" onPress={onGetStartedPress} />
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  banner: {
-    minHeight: 420,
-    justifyContent: 'center',
-    alignItems: 'center',
+  container: {
     padding: 20,
-    backgroundColor: '#3498db',
+    backgroundColor: '#fff',
+    alignItems: 'center',
   },
   image: {
     width: '100%',
     height: 220,
-    borderRadius: 10,
+    borderRadius: 12,
     marginBottom: 18,
   },
-  title: { fontSize: 28, fontWeight: '700', color: '#fff', marginBottom: 10 },
-  text: { fontSize: 16, color: '#fff', textAlign: 'center', marginBottom: 20 },
-  button: {
-    backgroundColor: '#fff',
-    paddingHorizontal: 20,
-    paddingVertical: 10,
-    borderRadius: 8,
-  },
-  buttonText: { color: '#3498db', fontWeight: '600' },
 });
